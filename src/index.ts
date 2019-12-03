@@ -1,4 +1,1 @@
-import { InterpolatedColor } from './InterpolatedColor';
-export { Point, PointObject, Points } from './InterpolatedColor';
-
-export default InterpolatedColor;
+export { InterpolatedColor, Point, PointObject, Points } from './InterpolatedColor';
