@@ -13,7 +13,7 @@ export function InterpolatedColor(points: Points) {
     throw new Error(`Not enough points`);
   }
   const pointsResolved: Array<Point> = points.map(p => (Array.isArray(p) ? p : [p.x, p.color]));
-  const pointsSorted = pointsResolved.sort((left, right) => right[0] - left[0]);
+  const pointsSorted = pointsResolved.sort((left, right) => left[0] - right[0]);
   const pointsHsl = pointsSorted.map((p): [number, HSL] => [
     p[0],
     Color(p[1])
@@ -22,17 +22,17 @@ export function InterpolatedColor(points: Points) {
   ]);
   const hPoints = pointsHsl.map((p): Vector => [p[0], p[1].h]);
   // fix hue
-  // 355 -> 5
-  // 355 -> 365
+  // transorm 5 -> 355 into 5 -> -5
+  // so hue always take the shortest path
   hPoints.forEach((v, i) => {
     const prev = hPoints[i - 1];
     if (prev) {
       const diff = prev[1] - v[1];
       if (diff > 180) {
-        v[1] = prev[1] - (360 - diff);
+        v[1] = v[1] + 360;
       }
       if (diff < -180) {
-        v[1] = prev[1] + (360 - diff);
+        v[1] = v[1] - 360;
       }
     }
   });
@@ -48,6 +48,4 @@ export function InterpolatedColor(points: Points) {
       .hex()
       .toString();
   };
-
-  console.log(pointsSorted);
 }

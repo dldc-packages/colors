@@ -13,15 +13,15 @@ it('create a linear curve', () => {
       .map(v => curve(v))
   ).toEqual([
     '#000000',
-    '#191919',
+    '#1A1A1A',
     '#333333',
-    '#4C4C4C',
+    '#4D4D4D',
     '#666666',
     '#808080',
     '#999999',
-    '#B2B2B2',
+    '#B3B3B3',
     '#CCCCCC',
-    '#E5E5E5',
+    '#E6E6E6',
   ]);
 });
 
@@ -55,9 +55,27 @@ test('Gist', () => {
     [30, 'blue'],
     [100, 'green'],
   ]);
-  expect(gradient(0)).toEqual('#00FF00');
+  expect(gradient(0)).toEqual('#FF0000');
   expect(gradient(30)).toEqual('#0000FF');
   expect(gradient(100)).toEqual('#008000');
-  expect(gradient(55)).toEqual('#0081D4');
-  expect(gradient(55.5)).toEqual('#0084D3');
+  expect(gradient(55)).toEqual('#00A0D4');
+  expect(gradient(55.5)).toEqual('#00A2D3');
+});
+
+test('Material Blue', () => {
+  const color = InterpolatedColor([
+    [0, '#ffffff'],
+    [50, '#E3F2FD'],
+    [100, '#BBDEFB'],
+    [200, '#90CAF9'],
+    [300, '#64B5F6'],
+    [400, '#42A5F5'],
+    [500, '#2196F3'],
+    [600, '#1E88E5'],
+    [700, '#1976D2'],
+    [800, '#1565C0'],
+    [900, '#0D47A1'],
+    [1000, '#000000'],
+  ]);
+  expect(color(500)).toEqual('#2196F3');
 });

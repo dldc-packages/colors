@@ -13,9 +13,9 @@ const gradient = InterpolatedColor([
   [100, 'green'],
 ]);
 
-console.log(gradient(0)); // '#00FF00' => red
-console.log(gradient(30)); // '#0000FF' => blue
-console.log(gradient(100)); // '#008000' => green
-console.log(gradient(55)); // '#0081D4' => between blue & green
-console.log(gradient(55.5)); // '#0084D3' => a bit more green
+console.log(gradient(0)); // #FF0000 => red
+console.log(gradient(30)); // #0000FF => blue
+console.log(gradient(100)); // #008000 => green
+console.log(gradient(55)); // #00A0D4 => between blue and green
+console.log(gradient(55.5)); // #00A2D3 => a bit more geen
 ```
