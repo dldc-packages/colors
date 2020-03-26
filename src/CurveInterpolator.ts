@@ -37,7 +37,6 @@ export function CurveInterpolator(pts: Vector[], tension = 0.5) {
 /**
  * Extrapolates input array if points have length less than 4 by copying first and last
  * points, so there is a minimum of 4 control points (required to do cubic spline calculations)
- * @param args input array
  */
 function extrapolateArgs(args: Vector[]): Vector[] {
   if (args.length < 4) {

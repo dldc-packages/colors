@@ -22,8 +22,8 @@ export function InterpolatedColor(points: Points) {
   ]);
   const hPoints = pointsHsl.map((p): Vector => [p[0], p[1].h]);
   // fix hue
-  // transorm 5 -> 355 into 5 -> -5
   // so hue always take the shortest path
+  // transorm 5 -> 355 into 5 -> -5
   hPoints.forEach((v, i) => {
     const prev = hPoints[i - 1];
     if (prev) {
