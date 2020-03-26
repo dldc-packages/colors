@@ -1,6 +1,6 @@
 {
   "name": "interpolated-colors",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A tool to create dynamic colors by interpolating multiple colors",
   "keywords": [],
   "homepage": "https://github.com/etienne-dldc/interpolated-colors#readme",
