@@ -1,4 +1,4 @@
-import InterpolatedColor from '../src';
+import { InterpolatedColor } from '../src';
 
 const range = (size: number) => new Array(size).fill(null).map((_, i) => i);
 
