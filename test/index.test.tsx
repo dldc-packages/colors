@@ -1,16 +1,16 @@
-import { InterpolatedColor } from '../src';
+import { InterpolatedColor } from '../src/mod';
 
 const range = (size: number) => new Array(size).fill(null).map((_, i) => i);
 
-it('create a linear curve', () => {
+test('create a linear curve', () => {
   const curve = InterpolatedColor([
     [0, '#000000'],
     [1, '#ffffff'],
   ]);
   expect(
     range(10)
-      .map(v => v / 10)
-      .map(v => curve(v))
+      .map((v) => v / 10)
+      .map((v) => curve(v))
   ).toEqual([
     '#000000',
     '#1A1A1A',
@@ -25,7 +25,7 @@ it('create a linear curve', () => {
   ]);
 });
 
-it('create a curve', () => {
+test('create a curve', () => {
   const curve = InterpolatedColor([
     [0, '#000000'],
     [50, '#ffffff'],
@@ -33,8 +33,8 @@ it('create a curve', () => {
   ]);
   expect(
     range(10)
-      .map(v => 10 * v)
-      .map(v => curve(v))
+      .map((v) => 10 * v)
+      .map((v) => curve(v))
   ).toEqual([
     '#000000',
     '#3A3A3A',

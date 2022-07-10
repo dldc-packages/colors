@@ -12,13 +12,11 @@ export function InterpolatedColor(points: Points) {
   if (points.length < 2) {
     throw new Error(`Not enough points`);
   }
-  const pointsResolved: Array<Point> = points.map(p => (Array.isArray(p) ? p : [p.x, p.color]));
+  const pointsResolved: Array<Point> = points.map((p) => (Array.isArray(p) ? p : [p.x, p.color]));
   const pointsSorted = pointsResolved.sort((left, right) => left[0] - right[0]);
   const pointsHsl = pointsSorted.map((p): [number, HSL] => [
     p[0],
-    Color(p[1])
-      .hsl()
-      .object() as HSL,
+    Color(p[1]).hsl().object() as HSL,
   ]);
   const hPoints = pointsHsl.map((p): Vector => [p[0], p[1].h]);
   // fix hue

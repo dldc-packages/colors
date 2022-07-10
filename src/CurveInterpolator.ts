@@ -152,7 +152,7 @@ function getTAtValue(
     return [0]; // whole segment matches - how to deal with this?
   }
   const roots = getCubicRoots(a, b, c, d);
-  return roots.filter(t => t > -EPS && t <= 1 + EPS).map(t => clamp(t, 0, 1));
+  return roots.filter((t) => t > -EPS && t <= 1 + EPS).map((t) => clamp(t, 0, 1));
 }
 
 /**
