@@ -54,11 +54,7 @@ function extrapolateArgs(args: Vector[]): Vector[] {
  * @param points control points
  * @param options lookup options to control axis, tension, max solutions etc.
  */
-function valuesLookup(
-  lookup: number,
-  points: Vector[],
-  options?: LookupOptions
-): Vector[] | number[] {
+function valuesLookup(lookup: number, points: Vector[], options?: LookupOptions): Vector[] | number[] {
   const { axis, tension, margin, max, processXY } = {
     axis: 0,
     tension: 0.5,
@@ -123,14 +119,7 @@ function valuesLookup(
  * @param v2 value of third control point
  * @param v3 value of fourth control point
  */
-function solveForT(
-  t: number,
-  tension: number,
-  v0: number,
-  v1: number,
-  v2: number,
-  v3: number
-): number {
+function solveForT(t: number, tension: number, v0: number, v1: number, v2: number, v3: number): number {
   if (Math.abs(t) < EPS) return v1;
   if (Math.abs(1 - t) < EPS) return v2;
   const t2 = t * t;
@@ -139,14 +128,7 @@ function solveForT(
   return a * t3 + b * t2 + c * t + d;
 }
 
-function getTAtValue(
-  lookup: number,
-  tension: number,
-  v0: number,
-  v1: number,
-  v2: number,
-  v3: number
-): number[] {
+function getTAtValue(lookup: number, tension: number, v0: number, v1: number, v2: number, v3: number): number[] {
   const [a, b, c, d] = getCoefficients(v0, v1, v2, v3, lookup, tension);
   if (a === 0 && b === 0 && c === 0 && d === 0) {
     return [0]; // whole segment matches - how to deal with this?

@@ -1,3 +1,4 @@
+import { expect, test } from 'vitest';
 import { InterpolatedColor } from '../src/mod';
 
 const range = (size: number) => new Array(size).fill(null).map((_, i) => i);
