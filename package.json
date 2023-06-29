@@ -1,15 +1,15 @@
 {
-  "name": "interpolated-colors",
+  "name": "@dldc/colors",
   "version": "3.0.1",
   "description": "A tool to create dynamic colors by interpolating multiple colors",
   "keywords": [],
-  "homepage": "https://github.com/etienne-dldc/interpolated-colors#readme",
+  "homepage": "https://github.com/dldc-packages/colors#readme",
   "bugs": {
-    "url": "https://github.com/etienne-dldc/interpolated-colors/issues"
+    "url": "https://github.com/dldc-packages/colors/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/etienne-dldc/interpolated-colors.git"
+    "url": "git+https://github.com/dldc-packages/colors.git"
   },
   "license": "MIT",
   "author": "Etienne Dldc <e.deladonchamps@gmail.com>",
