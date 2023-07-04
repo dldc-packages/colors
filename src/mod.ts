@@ -1,1 +1,1 @@
-export { InterpolatedColor, Point, PointObject, Points } from './InterpolatedColor';
+export * from './InterpolatedColor';
