@@ -153,7 +153,7 @@ function getCoefficients(
   v2: number,
   v3: number,
   v: number = 0,
-  tension: number = 0.5
+  tension: number = 0.5,
 ): [number, number, number, number] {
   const c = (1 - tension) * (v2 - v0) * 0.5;
   const x = (1 - tension) * (v3 - v1) * 0.5;

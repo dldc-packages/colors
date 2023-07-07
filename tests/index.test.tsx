@@ -11,7 +11,7 @@ test('create a linear curve', () => {
   expect(
     range(10)
       .map((v) => v / 10)
-      .map((v) => curve(v))
+      .map((v) => curve(v)),
   ).toEqual([
     '#000000',
     '#1A1A1A',
@@ -35,7 +35,7 @@ test('create a curve', () => {
   expect(
     range(10)
       .map((v) => 10 * v)
-      .map((v) => curve(v))
+      .map((v) => curve(v)),
   ).toEqual([
     '#000000',
     '#3A3A3A',
