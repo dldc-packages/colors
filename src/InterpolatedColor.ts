@@ -1,5 +1,6 @@
 import Color from 'color';
-import { CurveInterpolator, Vector } from './CurveInterpolator';
+import type { Vector } from './CurveInterpolator';
+import { CurveInterpolator } from './CurveInterpolator';
 
 export type Point = [number, string];
 export type PointObject = { x: number; color: string };
