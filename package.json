@@ -1,6 +1,6 @@
 {
   "name": "@dldc/colors",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "A tool to create dynamic colors by interpolating multiple colors",
   "keywords": [],
   "homepage": "https://github.com/dldc-packages/colors#readme",
