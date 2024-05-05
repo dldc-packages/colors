@@ -5,12 +5,12 @@
 ## Gist
 
 ```ts
-import InterpolatedColor from 'interpolated-colors';
+import InterpolatedColor from "interpolated-colors";
 
 const gradient = InterpolatedColor([
-  [0, 'red'],
-  [30, 'blue'],
-  [100, 'green'],
+  [0, "red"],
+  [30, "blue"],
+  [100, "green"],
 ]);
 
 console.log(gradient(0)); // #FF0000 => red

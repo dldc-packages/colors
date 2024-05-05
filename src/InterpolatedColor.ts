@@ -1,6 +1,6 @@
-import Color from 'color';
-import type { Vector } from './CurveInterpolator';
-import { CurveInterpolator } from './CurveInterpolator';
+import Color from "color";
+import type { Vector } from "./CurveInterpolator.ts";
+import { CurveInterpolator } from "./CurveInterpolator.ts";
 
 export type Point = [number, string];
 export type PointObject = { x: number; color: string };
@@ -8,14 +8,20 @@ export type Points = Array<PointObject | Point>;
 
 type HSL = { h: number; s: number; l: number };
 
-export function InterpolatedColor(points: Points) {
+export type TInterpolatedColorFn = (val: number) => string;
+
+export function InterpolatedColor(points: Points): TInterpolatedColorFn {
   // Validate points
   if (points.length < 2) {
     throw new Error(`Not enough points`);
   }
-  const pointsResolved: Array<Point> = points.map((p) => (Array.isArray(p) ? p : [p.x, p.color]));
+  const pointsResolved: Array<Point> = points.map((
+    p,
+  ) => (Array.isArray(p) ? p : [p.x, p.color]));
   const pointsSorted = pointsResolved.sort((left, right) => left[0] - right[0]);
-  const pointsHsl = pointsSorted.map((p): [number, HSL] => [p[0], Color(p[1]).hsl().object() as HSL]);
+  const pointsHsl = pointsSorted.map((
+    p,
+  ): [number, HSL] => [p[0], Color(p[1]).hsl().object() as HSL]);
   const hPoints = pointsHsl.map((p): Vector => [p[0], p[1].h]);
   // fix hue
   // so hue always take the shortest path
@@ -39,8 +45,8 @@ export function InterpolatedColor(points: Points) {
   const sCurve = CurveInterpolator(sPoints);
   const lCurve = CurveInterpolator(lPoints);
 
-  return (val: number) => {
-    return Color({ h: hCurve(val), s: sCurve(val), l: lCurve(val) }, 'hsl')
+  return (val: number): string => {
+    return Color({ h: hCurve(val), s: sCurve(val), l: lCurve(val) }, "hsl")
       .hex()
       .toString();
   };
