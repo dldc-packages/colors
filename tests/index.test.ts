@@ -1,9 +1,9 @@
-import { expect } from "$std/expect/mod.ts";
-import { InterpolatedColor } from "../mod.ts";
+import { expect, test } from "vite-plus/test";
+import { InterpolatedColor } from "@dldc/colors";
 
-const range = (size: number) => new Array(size).fill(null).map((_, i) => i);
+const range = (size: number) => Array.from({ length: size }, (_, i) => i);
 
-Deno.test("create a linear curve", () => {
+test("create a linear curve", () => {
   const curve = InterpolatedColor([
     [0, "#000000"],
     [1, "#ffffff"],
@@ -26,7 +26,7 @@ Deno.test("create a linear curve", () => {
   ]);
 });
 
-Deno.test("create a curve", () => {
+test("create a curve", () => {
   const curve = InterpolatedColor([
     [0, "#000000"],
     [50, "#ffffff"],
@@ -50,7 +50,7 @@ Deno.test("create a curve", () => {
   ]);
 });
 
-Deno.test("Gist", () => {
+test("Gist", () => {
   const gradient = InterpolatedColor([
     [0, "red"],
     [30, "blue"],
@@ -63,7 +63,7 @@ Deno.test("Gist", () => {
   expect(gradient(55.5)).toEqual("#00A2D3");
 });
 
-Deno.test("Material Blue", () => {
+test("Material Blue", () => {
   const color = InterpolatedColor([
     [0, "#ffffff"],
     [50, "#E3F2FD"],
